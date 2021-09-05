@@ -17,14 +17,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
+  h1, h2, h3, h4, h6{
+    text-align: center;
   }
+  h5,
 
   p {
     margin: 0;
@@ -342,24 +338,68 @@
   
   
 
- 
+ <div >
   <h2>Crear Proyecto en Angular</h2>
+  <br>
   <p>Crear un mensaje de hola mundo y un ejemplo de String interpolation y data binding</p>
-
+</div>
   <input type="hidden" #selection>
 
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>String interpolation</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Data binding</span>
-    </button>
-
+  <div>
+    <h2>Ejemplos de String Interpolation</h2>
+    <br>
+    <p>Angular se encarga de analizar lo que se encuentra dentro de las llaves dobles, esto se ejecuta en la carpeta src en app.component.html y app.components.ts que es donde se encuentra ubicado el contenido de la página, de la misma manera podemos crear una funcion que se encargue de retornar el valor de la variable, esto en app.component.ts y lo ejecutamos dentro de las llaves dobles</p>
+    <br>
+    <h4>llamamos el valor de la variable title2: {{ title2 }}</h4>
+    <br>
+    <h4>se interpreta el valor de la funcion getTitulo: {{ getTitulo() }}</h4>
+    <br>
+    <p>el concepto de String Interpolation es que vamos a utilizar llaves dobles para que de esta manera Angular se encargue de analizar alguna variable o funcion que se encuentre dentro de estas llames y de esa manera motrar su valor en pantalla</p>
+    <br>
   </div>
+
+  <div>
+    <br>
+    <h2>Ejemplos de DataBinding</h2>
+    <br>
+    <p>es una de las caracteristicas que provee angular, se utiliza para comunicar o sincronizar datos desde el DOM (archivo html) hacia el componente (archivo ts), los tipos de Data Binding son el string interpolation (que ya se vio en el primer ejemplo) donde se envian datos de una sola via del componente hacia el dom, de la misma manera se trabaja con el property binding que envia datos de forma unidireccional, se tiene el event binding que envia datos del dom hacia el component y por ultimo el two-way binding, que envia datos de forma bidireccional entre el component y el dom </p>
+    <br>
+    <div>
+      <h3>Ejemplo Property Binding</h3>
+      <br>
+      <p >se coloca entre corchetes la propiedad y luego se coloca la variable</p>
+      <img [src]="urlimg">
+      <p [style.color]="color" [innerHTML]="texto"> </p>
+    </div>
+    <div>
+      <h3>Ejemplo Event Binding</h3>
+      <p>lo que vamos a hacer es enviar datos desde el dom (html) hacia el componente, con los botones incrementar sumaremos 1 a la variable numero en el componente y decrementar restara 1 a la variable</p>
+      <br>
+      <button  (click)="incrementar()" >Incrementar</button>
+      <button (click)="decrementar()">Decrementar</button>
+      <h3 [style.color]="color">el valor de la variable numero es: {{numero}}</h3>
+      <br>
+    </div>
+    <div>
+      <h3 >Ejemplo Two-Way Binding</h3>
+      <p>los datos fluyen en ambos lados, pero para poder utilizar ngModel debemos agregar un modulo dentro de app.module.ts, una vez agregado el modulo e importado, nos permitira ver en tiempo real el dato que estamos ingresando a la variable y mostrandola en pantalla al momento del cambio</p>
+      <br>
+      <input type="text" [(ngModel)]="numero1" placeholder="Ingrese un número">
+      <br>
+      <h3>{{ numero1 }}</h3>
+      <br>
+      <br>
+      <input type="number" [(ngModel)]="numero2" placeholder="Ingrese un número">
+      <input type="number" [(ngModel)]="numero3" placeholder="Ingrese un número">
+      <br>
+      <h3>La suma de los números es: {{ suma() }}</h3>
+      <br>
+    </div>
+
+    <br>
+  </div>
+
+</div>
 
   
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
